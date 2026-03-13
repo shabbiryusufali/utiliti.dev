@@ -7,7 +7,7 @@ import Box, { BoxContent, BoxTitle } from "~/components/box";
 import ContentWrapper from "~/components/content-wrapper";
 import Copy from "~/components/copy";
 import { useHydrated } from "~/hooks/use-hydrated";
-import Dropdown from "~/components/dropdown";
+import SearchableDropdown from "~/components/searchable-dropdown";
 
 export const meta = metaHelper(utilities.timezoneConverter);
 
@@ -76,11 +76,11 @@ export default function TimezoneConverter() {
             <div className="flex items-center md:w-1/2">
               <div className="w-28 text-sm">Target Time Zone</div>
               <div className="flex grow lg:grow-0">
-                <Dropdown
+                <SearchableDropdown
                   value={targetZone}
-                  onChange={(event) => setTargetZone(event.target.value)}
                   onOptionChange={(value) => setTargetZone(value)}
                   options={timeZones.map((tz) => ({ id: tz, label: tz }))}
+                  className="w-52 md:w-56"
                 />
               </div>
             </div>
